@@ -2,12 +2,12 @@
 
 # Gigante Rental Cars Liquidation and Distribution Summary 
 
-### Gigante is the largest rental car company in South America, with multiple offices spread across many Latin American countries. Unfortunately, a series of misfortunes has caused Gigante to enter bankruptcy.  Since credit is not available for a restructuring the court has accepted the liquidation plan submitted by the creditors. 
+Gigante is the largest rental car company in South America, with multiple offices spread across many Latin American countries. Unfortunately, a series of misfortunes has caused Gigante to enter bankruptcy.  Since credit is not available for a restructuring the court has accepted the liquidation plan submitted by the creditors. 
 
-### Under the liquidation plan, there will be two key parties which will act under the supervision of the court and the primary bankruptcy trustee. 
+Under the liquidation plan, there will be two key parties which will act under the supervision of the court and the primary bankruptcy trustee. 
 
-### The Liquidation Trustee will oversee the sales of all of the Company’s assets.
-### The Distribution Trustee will oversee the distribution of the liquidation proceeds to the Company’s creditors, according to a plan that will be submitted to the court in the next several weeks as the Proof of Claim forms are submitted by the creditors and evaluated by the staff. 
+The Liquidation Trustee will oversee the sales of all of the Company’s assets.
+The Distribution Trustee will oversee the distribution of the liquidation proceeds to the Company’s creditors, according to a plan that will be submitted to the court in the next several weeks as the Proof of Claim forms are submitted by the creditors and evaluated by the staff. 
 
 
 
