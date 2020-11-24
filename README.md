@@ -84,16 +84,16 @@ Test Plan for the Distribution Trustee Contract
 1. Contract should be able to receive funds and record received funds in the Cumulative Register.
 2. AdminFeesPayable and EmployeeSalariesPayable should be Incremented
 The first 100 units transferred to the contract should result in: 
-⋅⋅* 60 units payable to Admin Fees
-⋅⋅* 40 units payable for Salaries
+    * 60 units payable to Admin Fees
+    * 40 units payable for Salaries
 3. Sr Secured and Bondholder Payables should be Incremented
 An initial deposit of 400 units transferred to the contract should result in: 
-⋅⋅* 120 units payable to the Sr Secured and. 
-⋅⋅* 45 units payable to Bondholders
+    * 120 units payable to the Sr Secured and. 
+    * 45 units payable to Bondholders
 4. Jr Creditors and Equity Payables should be incremented properly
 An initial deposit of 500 units transferred to the contract should result in: 
-⋅⋅⋅* 39 payable to Jr Creditors
-⋅⋅⋅* 26 payable for Equity
+    * 39 payable to Jr Creditors
+    * 26 payable for Equity
 5. The Distribution Trustee can make distributions
 6. Distributions are made in the correct amounts in aggregate
 7. Distributions are made in the correct amounts to Equity
