@@ -61,4 +61,17 @@ In this demo, the Distribution Trustee is a single person.  A more advanced impl
 
 We assume that each of the recipients receiving funds is a multi-sig wallet. 
 
+## Timeline for Distribution Trustee Initial Development
+___
+
+| Phase  | Description           | Status  |
+| ------ |:-------------:| -----:|
+| 1      | Write Distribution Trustee | ok |
+| 2      | Write Test Plan      |   ok |
+| 3      | Deploy Distribution Trustee to Rinkeby      |  ok |
+
+
+
+
+
 
