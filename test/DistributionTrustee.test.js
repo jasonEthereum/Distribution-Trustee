@@ -9,17 +9,18 @@ with `npm install -g truffle`.
 
 */
 let catchRevert = require("./exceptionsHelpers.js").catchRevert
-var SimpleBank = artifacts.require("./DistributionTrustee.sol")
+var DistributionTrustee = artifacts.require("./DistributionTrustee.sol")
+var units = 10**15
 
-contract('SimpleBank', function(accounts) {
+contract('DistributionTrustee', function(accounts) {
 
   const owner = accounts[0]
   const alice = accounts[1]
   const bob = accounts[2]
-  const deposit = web3.utils.toBN(100000)
+  const deposit = web3.utils.toBN(100*units)
 
   beforeEach(async () => {
-    instance = await SimpleBank.new()
+    instance = await DistributionTrustee.new()
   })
 
   
@@ -27,23 +28,29 @@ contract('SimpleBank', function(accounts) {
     await instance.A_receivePmts({from: alice, value: deposit})
     await instance.A_receivePmts({from: bob, value: deposit})
     const cumulReceived                               = await instance.CumulativeReceivedBalance()
-    assert.equal(cumulReceived.toNumber(),            deposit*2, '1 Cumul received balance is incorrect')
+    // assert.equal(cumulReceived.toNumber(),            deposit*2, '1 Cumul received balance is incorrect')
+    assert.equal(cumulReceived.toString(),            2*deposit.toString(), '1 Cumul received balance is incorrect')
   })
 
   it("2A. AdminFeesPayable and EmployeeSalariesPayable should be Incremented", async () => {
     await instance.A_receivePmts({from: alice, value: deposit})
     const adminFeesPayable                            = await instance.AdminFeesPayable()
     const employeeSalariesPayable                     = await instance.EmployeeSalariesPayable()
-    assert.equal(adminFeesPayable.toNumber(),           60000, '2 AdminFeesPayable is incorrect')
-    assert.equal(employeeSalariesPayable.toNumber(),    40000, '3 EmployeeSalariesPayable is incorrect')
+    // assert.equal(adminFeesPayable.toNumber(),           60*units, '2 AdminFeesPayable is incorrect')
+    // assert.equal(employeeSalariesPayable.toNumber(),    40*units, '3 EmployeeSalariesPayable is incorrect')
+    assert.equal(adminFeesPayable.toString(),           60*units.toString(), '2 AdminFeesPayable is incorrect')
+    assert.equal(employeeSalariesPayable.toString(),    40*units.toString(), '3 EmployeeSalariesPayable is incorrect')
+
   })
 
   it("2B. Sr Secured and Bondholder Payables should be Incremented", async () => {
     await instance.A_receivePmts({from: alice, value: deposit*4})
     const srSecuredPybl                               = await instance.SrSecuredCreditorsPayable()
     const bondholdersPybl                             = await instance.BondholdersPayable()
-    assert.equal(srSecuredPybl.toNumber(),             120000, '4 SrSecuredCreditorsPayable is incorrect')
-    assert.equal(bondholdersPybl.toNumber(),            45000, '5 EmployeeSalariesPayable is incorrect')
+    // assert.equal(srSecuredPybl.toNumber(),             120000, '4 SrSecuredCreditorsPayable is incorrect')
+    // assert.equal(bondholdersPybl.toNumber(),            45000, '5 EmployeeSalariesPayable is incorrect')
+    assert.equal(srSecuredPybl.toString(),             120*units.toString(), '4 SrSecuredCreditorsPayable is incorrect')
+    assert.equal(bondholdersPybl.toString(),            45*units.toString(), '5 EmployeeSalariesPayable is incorrect')
   })
 
 
@@ -51,8 +58,8 @@ contract('SimpleBank', function(accounts) {
     await instance.A_receivePmts({from: alice, value: deposit*5})
     const jrCreditorsPybl                             = await instance.JrCreditorsPayable()
     const equityPybl                                  = await instance.EquityPayable()
-    assert.equal(jrCreditorsPybl.toNumber(),            39000, '6 JrCreditorsPayable is incorrect')
-    assert.equal(equityPybl.toNumber(),                 26000, '7 EquityPayable is incorrect')
+    assert.equal(jrCreditorsPybl.toString(),            39*units.toString(), '6 JrCreditorsPayable is incorrect')
+    assert.equal(equityPybl.toString(),                 26*units.toString(), '7 EquityPayable is incorrect')
   })
 
   it("3. The Distribution Trustee can make distributions", async () => {
@@ -84,7 +91,7 @@ contract('SimpleBank', function(accounts) {
     await instance.D_makeDistributions({from: owner}) 
     
     const cumulPaidOut                                = await instance.CumulativePaidOutBalance()
-    assert.equal(cumulPaidOut.toNumber(),              500000, '10 incorrect amount distributed cumulatively')
+    assert.equal(cumulPaidOut.toString(),              500*units.toString(), '10 incorrect amount distributed cumulatively')
   })
 
   it("5. Distributions are made in the correct amounts to Equity", async () => {
@@ -92,7 +99,7 @@ contract('SimpleBank', function(accounts) {
     await instance.D_makeDistributions({from: owner}) 
     
     const equityPaidOut                                = await instance.EquityCumulPaid()
-    assert.equal(equityPaidOut.toNumber(),               66000, '10 incorrect amount distributed cumulatively')
+    assert.equal(equityPaidOut.toString(),               66*units.toString(), '10 incorrect amount distributed cumulatively')
   })
 
   it("6A. Should emit a LogReceipt event any time funds are received", async()=> {
