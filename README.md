@@ -12,13 +12,14 @@ The liquidation process is expected to take several months. Proceeds from liquid
 
 
 ### Liquidation Trustee
+---
 
 The Liquidation Trustee has hired Auction Agents in multiple countries to run auctions of Gigante’s vehicle’s and other assets. Sale proceeds will be transferred by each Auction Agent to the Liquidation Trustee’s smart contract. Once funds are transferred to the Liquidation Trustee, funds can only be released to the Distribution Trustee. The Bankruptcy Trustee will oversee all transfers. 
 
 (Note: This repository does not include the Liquidation Trustee) 
 
 ### Distribution Trustee
-
+---
 
 The Distribution Trustee will handle making payments to each class of creditors. Funds will be transferred from the Distribution Trustee to one of six subsidiary smart contracts for further disbursement among the individual creditors. 
 
@@ -37,7 +38,7 @@ For the purposes of this demonstration of the initial concept, the above amounts
 
 
 ### Implementation Mechanics
-
+---
 
 he Bankruptcy Court and the Trustee agree on the importance of transparency in the liquidation and distribution process. To that end, they have engaged BlockHeads LLC to implement the appropriate smart contracts and business processes to ensure the efficient resolution of this matter.   
 
@@ -52,10 +53,8 @@ Although the contract is designed to allow for funds to only be receivable from 
 
 All funds received by the contract are paid out to the parties *EXCEPT* funds sent by the owner.  That Ether is reserved as gas for the contract. (The alternative to this is to withhold 21000 wei from each payout, which is awkward).  The implication of this is that the contract *can* run out of gas.  The contract will be funded by the owner.  This differs from how the Liquidation Trustee contract handles gas, and the inconsistency is only because I want to be confident I can make it work either way. 
 
-
 #### Gas treatment
 Generally, any funds sent to the contract will be credited to the payees.  However, funds sent to the contract by the owner of the contract are for gas and will not be credited to the payees. 
-
 
 #### Multi-sig wallet
 In this demo, the Distribution Trustee is a single person.  A more advanced implementation would have those keys shared among several people in the form of a multi-signature wallet.  
