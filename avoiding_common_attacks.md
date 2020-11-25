@@ -1,6 +1,3 @@
-avoiding_common_attacks.md
-A document called avoiding_common_attacks.md explaining security steps you took what measures you took to ensure your contracts are not susceptible to common attacks
-
 ### Security steps taken to ensure the contracts are not susceptible to common attacks
 
 1. To protect against Denial of Service attacks, loops were not used.  
